@@ -1,0 +1,157 @@
+---
+import Github from "../icons/Github.astro";
+import SocialPill from "./SocialPill.astro";
+import Game from "../icons/Game.astro";
+import HTML from "../icons/HTML.astro";
+import CSS from "../icons/CSS.astro";
+import Express from "../icons/Express.astro";
+import Mongo from "../icons/MongoDB.astro";
+import Node from "../icons/NodeJS.astro";
+import React from "../icons/React.astro";
+import JavaScript from "../icons/JavaScript.astro";
+
+const TAGS = {
+  HTML: {
+    name: "HTML",
+    class: "bg-black text-white",
+    icon: HTML,
+  },
+  CSS: {
+    name: "CSS",
+    class: "bg-black text-white",
+    icon: CSS,
+  },
+  EXPRESS: {
+    name: "Express.js",
+    class: "bg-black text-white",
+    icon: Express,
+  },
+  MONGO: {
+    name: "MongoDB",
+    class: "bg-black text-white",
+    icon: Mongo,
+  },
+  NODE: {
+    name: "Node.js",
+    class: "bg-black text-white",
+    icon: Node,
+  },
+  REACT: {
+    name: "React",
+    class: "bg-black text-white",
+    icon: React,
+  },
+  JS: {
+    name: "JavaScript",
+    class: "bg-black text-white",
+    icon: JavaScript,
+  },
+};
+
+const PROJECTS = [
+  {
+    title: "Star Wars: La Caída de Alderaan",
+    description:
+      "Un emocionante juego de arcade inspirado en Star Wars donde te enfrentas a oleadas de enemigos para salvar el planeta Alderaan.",
+    link: "https://abranucu.github.io/Star-Wars-la-caida-de-Alderaan/",
+    github: "https://github.com/Abranucu/Star-Wars-la-caida-de-Alderaan",
+    image: "/projects/swlcda.webp",
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.JS],
+    demo: "https://abranucu.github.io/Star-Wars-la-caida-de-Alderaan/",
+  },
+  {
+    title: "Sea Scape",
+    description:
+      "Sea Scape es una aplicación web donde los usuarios exploran y califican playas. Los administradores gestionan la base de datos de playas y los comentarios de los usuarios.",
+    link: "https://seascape.adaptable.app/",
+    github: "https://github.com/dsanchezva/seascape",
+    image: "/projects/ss.webp",
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.JS, TAGS.NODE, TAGS.EXPRESS, TAGS.MONGO],
+    demo: "https://seascape.adaptable.app/",
+  },
+  {
+    title: "Viewr",
+    description:
+      "Viewr es tu destino definitivo para descubrir, explorar y celebrar el mundo del cine y la televisión.",
+    link: "https://viewr-app.netlify.app/",
+    githubServer: "https://github.com/Abranucu/Viewr-server",
+    githubClient: "https://github.com/josepcliment92/Viewr-app",
+    image: "/projects/v.webp",
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.JS, TAGS.REACT, TAGS.NODE, TAGS.MONGO],
+    demo: "https://viewr-app.netlify.app/",
+  },
+  {
+    title: "ABC Fitness",
+    description:
+      "ABC Fitness es una plataforma integral para ejercicios físicos y nutrición, permitiendo a los usuarios crear rutinas personalizadas, explorar ejercicios y recetas, y gestionar su perfil de usuario.",
+    link: "https://abc-fitness.netlify.app/",
+    githubServer: "https://github.com/Abranucu/ABC-Fitness-server",
+    githubClient: "https://github.com/Abranucu/ABC-Fitness-client",
+    image: "/projects/abcf.webp",
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.JS, TAGS.REACT, TAGS.NODE, TAGS.MONGO],
+    demo: "https://abc-fitness.netlify.app/",
+  },
+];
+---
+
+{
+  PROJECTS.map(
+    ({
+      image,
+      title,
+      description,
+      tags,
+      link,
+      githubServer,
+      githubClient,
+      demo,
+    }) => (
+      <article class="mb-20">
+        <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
+        <p class="text-lg mb-4 text-pretty">{description}</p>
+        <div class="flex gap-8 mt-8 flex-wrap items-center justify-center">
+          <h5 class="text-lg">Enlaces:</h5>
+          {githubServer && githubClient ? (
+            <>
+              <SocialPill href={githubServer}>
+                <Github class="size-6" />
+                Repositorio Servidor
+              </SocialPill>
+              <SocialPill href={githubClient}>
+                <Github class="size-6" />
+                Repositorio Cliente
+              </SocialPill>
+            </>
+          ) : (
+            <SocialPill href={githubServer || githubClient}>
+              <Github class="size-6" />
+              Repositorio
+            </SocialPill>
+          )}
+          {demo && (
+            <SocialPill href={demo}>
+              <Game class="size-6" />
+              Demo
+            </SocialPill>
+          )}
+        </div>
+        <ul class="flex gap-8 mt-8 flex-wrap items-center justify-center mb-8">
+          <h5 class="text-lg">Tecnologías:</h5>
+          {tags.map((tag) => (
+            <SocialPill>
+              <tag.icon class="size-6" />
+              {tag.name}
+            </SocialPill>
+          ))}
+        </ul>
+        <div class="flex items-center justify-center">
+          <img
+            class="rounded shadow-2xl shadow-white/10 object-center"
+            src={image}
+            alt={`Captura de pantalla del proyecto ${title}`}
+          />
+        </div>
+      </article>
+    )
+  )
+}

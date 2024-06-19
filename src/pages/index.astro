@@ -1,0 +1,93 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Badge from "../components/Badge.astro";
+import LinkedInIcon from "../icons/LinkedIn.astro";
+import SocialPill from "../components/SocialPill.astro";
+import GithubIcon from "../icons/Github.astro";
+import MailIcon from "../icons/Mail.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Exp from "../components/Exp.astro";
+import Briefcase from "../icons/Briefcase.astro";
+import Projects from "../components/Projects.astro";
+import Code from "../icons/Code.astro";
+---
+
+<Layout
+  title="Porfolio de  Abraham - Desarrollador Programador Full Stack Junior"
+>
+  <main class="px-4">
+    <SectionContainer class="py-44 pb-32">
+      <div class="max-w-[90%] mx-auto leading-relaxed">
+        <img
+          class="rounded-full size-20 object-cover mb-4"
+          src="/foto-perfil.webp"
+          alt="abranucu photo"
+        />
+      </div>
+      <h1
+        class="text-white text-2xl md:text-4xl lg:text-6xl font-bold flex gap-x-4 flex-row pb-6 lg:pb-10 max-w-[90%] lg:max-w-[100%] mx-auto leading-relaxed"
+      >
+        Hola, soy Abraham <a
+          href="http://www.linkedin.com/in/abranucu"
+          target="_blank"
+          rel="noopener"
+          class="flex justify-center items-center"
+        >
+          <Badge>Disponible para trabajar</Badge>
+        </a>
+      </h1>
+      <h2
+        class="text-xl lg:text-2xl max-w-[90%] mx-auto leading-relaxed text-center text-pretty bg-black/60 p-5 rounded-lg text-white shadow-lg shadow-black"
+      >
+        <span class="opacity-100 text-white">Soy un</span>
+        <span class="text-yellow-400">desarrollador Full Stack Junior</span>
+        <span class="text-red-400">ubicado en Gijón, España.</span>
+        <span class="opacity-100 text-white"
+          >Con una trayectoria previa en el sector servicios y logístico, he
+          decidido redirigir mi carrera hacia el sector tecnológico, impulsado
+          por mi pasión por el desarrollo web y el deseo de mejorar mi
+          conciliación familiar. Mi experiencia en estos sectores me ha dotado
+          de habilidades prácticas, capacidad de adaptación y un enfoque
+          meticuloso al resolver problemas, cualidades que ahora aplico en mi
+          nuevo rol tecnológico. Estoy comprometido con el aprendizaje continuo
+          y con la creación de soluciones web innovadoras y funcionales para los
+          usuarios.
+        </span>
+      </h2>
+      <nav class="flex gap-8 mt-8 flex-wrap items-center justify-center">
+        <SocialPill href="http://www.linkedin.com/in/abranucu">
+          <LinkedInIcon class="size-6" />
+          LinkedIn
+        </SocialPill>
+        <SocialPill href="https://github.com/Abranucu">
+          <GithubIcon class="size-6" />
+          Github
+        </SocialPill>
+        <SocialPill>
+          <MailIcon class="size-6" />
+          abrahamcastiellobarbas@gmail.com
+        </SocialPill>
+      </nav>
+    </SectionContainer>
+    <SectionContainer
+      id="experiencia"
+      class="scroll-margin-top-[80px] pt-[80px]"
+    >
+      <h2
+        class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-white"
+      >
+        <Briefcase class="size-10" />
+        Experiencia laboral
+      </h2>
+      <Exp />
+    </SectionContainer>
+
+    <SectionContainer id="proyectos" class="scroll-margin-top-[80px] pt-[80px]">
+      <h2 class="text-3xl font-smibold mb-6 flex gap-x-3 items-center">
+        <Code class="size-10" />
+        Proyectos
+      </h2>
+      <Projects />
+    </SectionContainer>
+  </main>
+</Layout>
